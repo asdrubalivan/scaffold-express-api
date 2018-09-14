@@ -1,0 +1,23 @@
+{
+  "name": "scaffold-express-api",
+  "version": "0.0.1",
+  "description": "A small tool for scaffolding REST APIs on express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asdrubalivan/scaffold-express-api.git"
+  },
+  "keywords": [
+    "scaffold",
+    "express"
+  ],
+  "author": "@asdrubalivan",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/asdrubalivan/scaffold-express-api/issues"
+  },
+  "homepage": "https://github.com/asdrubalivan/scaffold-express-api#readme"
+}
