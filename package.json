@@ -2,7 +2,7 @@
   "name": "scaffold-express-api",
   "version": "0.0.1",
   "description": "A small tool for scaffolding REST APIs on express",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
