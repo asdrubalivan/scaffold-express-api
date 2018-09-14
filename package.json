@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/asdrubalivan/scaffold-express-api/issues"
   },
-  "homepage": "https://github.com/asdrubalivan/scaffold-express-api#readme"
+  "homepage": "https://github.com/asdrubalivan/scaffold-express-api#readme",
+  "dependencies": {
+    "mustache": "^2.3.2",
+    "pluralize": "^7.0.0"
+  }
 }
