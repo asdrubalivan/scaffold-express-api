@@ -1,0 +1,66 @@
+const getAll{{pluralizedModel}} = async (req, res) => {
+  const model = req.app.get('models.{{lcModel}}')
+  const {{pluralizedModelLC}} = await model.findAll()
+  return res.send({
+    ok: true,
+    {{pluralizedModelLC}}
+  })
+}
+
+const create{{modelName}} = async (req, res) => {
+  const model = req.app.get('models.{{lcModel}}')
+  const {{lcModel}} = await model.createAndAssociate(req.body)
+  return res.send({
+    ok: true,
+    {{lcModel}}
+  })
+}
+
+const get{{modelName}} = (req, res) => {
+  return res.send({
+    ok: true,
+    {{lcModel}}: res.locals.{{lcModel}}
+  })
+}
+
+const update{{modelName}} = async (req, res) => {
+  const {{{lcModel}}} = res.locals
+  const updated = await {{lcModel}}.update(req.body)
+  return res.send({
+    ok: true,
+    {{lcModel}}: updated
+  })
+}
+
+const destroy{{modelName}} = async (req, res) => {
+  const {{{lcModel}}} = res.locals
+  await {{lcModel}}.destroy()
+  return res.send({
+    ok: true,
+    {{lcModel}}
+  })
+}
+
+const {{lcModel}}Middleware = async (req, res, next) => {
+  const model = req.app.get('models.{{lcModel}}')
+  const {{lcModel}} = await model.findById(req.params.id)
+  if (!{{lcModel}}) {
+    const message = '{{modelName}} not found'
+    return res.status(404).send({
+      ok: false,
+      message,
+      errors: [message]
+    })
+  }
+  res.locals.{{lcModel}} = {{lcModel}}
+  next()
+}
+
+module.exports = {
+  getAll{{pluralizedModel}},
+  create{{modelName}},
+  get{{modelName}},
+  update{{modelName}},
+  destroy{{modelName}},
+  {{lcModel}}Middleware
+}

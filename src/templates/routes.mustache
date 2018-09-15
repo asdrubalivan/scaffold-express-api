@@ -1,0 +1,37 @@
+const express = require('express')
+const router = express.Router()
+const {
+  getAll{{pluralizedModel}},
+  create{{modelName}},
+  get{{modelName}},
+  update{{modelName}},
+  destroy{{modelName}},
+  {{lcModel}}Middleware
+} = require('../controllers/{{modelName}}')
+
+/**
+ * Gets all {{pluralizedModel}}
+ */
+router.get('/', getAll{{pluralizedModel}})
+
+/**
+ * Creates a new {{modelName}}
+ */
+router.post('/', create{{modelName}})
+
+/**
+ * Gets data for a single {{modelName}}
+ */
+router.get('/:id', get{{modelName}})
+
+/**
+ * Edits a {{modelName}}
+ */
+router.put('/:id', update{{modelName}})
+
+/**
+ * Deletes a {{modelName}}
+ */
+router.delete('/:id', destroy{{modelName}})
+
+module.exports = router
