@@ -1,28 +1,16 @@
-const p = require('pluralize')
-const m = require('mustache')
-const {readFileSync, writeFileSync} = require('fs')
-const {resolve} = require('path')
+const {generateController, generateRoute} = require('./generator')
+const parseArgs = require('./argparser')
 
-const getModelNames = modelName => {
-  const lcModel = modelName.toLowerCase()
-  const pluralizedModel = p(modelName)
-  const pluralizedModelLC = pluralizedModel.toLowerCase()
-  return {
-    modelName,
-    pluralizedModel,
-    pluralizedModelLC,
-    lcModel
-  }
+const generateValues = model => {
+  console.log('Generating route')
+  generateRoute(model)
+  console.log('Generating controller')
+  generateController(model)
 }
 
-const generateBase = file => modelName => {
-  const routesTpl = readFileSync(resolve(__dirname, './', 'templates', `${file}.mustache`)).toString()
-  const rendered = m.render(routesTpl, getModelNames(modelName))
-  return writeFileSync(`${file}.js`, rendered)
+const main = () => {
+  const args = parseArgs()
+  generateValues(args.model)
 }
 
-const generateRoute = generateBase('routes')
-const generateController = generateBase('controllers')
-
-generateRoute('User')
-generateController('User')
+main()
