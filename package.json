@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/asdrubalivan/scaffold-express-api#readme",
   "dependencies": {
+    "argparse": "^1.0.10",
     "mustache": "^2.3.2",
     "pluralize": "^7.0.0"
   }
